@@ -7,6 +7,10 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-app-layout>
+        <x-slot name="header">
+            Index
+        </x-slot>
     <body>
         <h1>詳細画面</h1>
         <div>
@@ -19,4 +23,5 @@
             <a href="/">戻る</a>
         </div>
     </body>
+    </x-app-layout>
 </html>
