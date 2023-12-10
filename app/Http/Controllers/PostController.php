@@ -26,10 +26,12 @@ class PostController extends Controller
 
     public function store(Post $post, Request $request)
     {
-        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        
         $input = $request['post'];
         $post->user_id = \Auth::id();
+        if($request->file('image')){
+            $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            $post->image = $image_url;
+        }
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
