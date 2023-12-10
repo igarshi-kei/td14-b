@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->string('title', 50);
-            $table->string('post', 200);
+            $table->string('body', 200);
             $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();

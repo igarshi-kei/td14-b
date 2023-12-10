@@ -28,6 +28,7 @@
         <div>
             {{ $posts->links() }}
         </div>
+        {{ Auth::user()->name }}
     </body>
     </x-app-layout>
 </html>
