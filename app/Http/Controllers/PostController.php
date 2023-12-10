@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use Cloudinary;
+use App\Models\Reaction;
 
 class PostController extends Controller
 {
@@ -14,9 +15,15 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 
-    public function show(Post $post)
+    public function show(Post $post, Reaction $reaction)
     {
-        return view('posts/show')->with(['post' => $post]);
+        $count_santa=$reaction->where('genre',"1")->count();
+        $count_good=$reaction->where('genre',"2")->count();
+        $count_present=$reaction->where('genre',"3")->count();
+        $count_heart=$reaction->where('genre',"4")->count();
+        $count_snowman=$reaction->where('genre',"5")->count();
+        
+        return view('posts/show')->with(['post' => $post,'count_santa' =>$count_santa,'count_good' =>$count_good,'count_present' =>$count_present,'count_heart' =>$count_heart,'count_snowman' =>$count_snowman]);
     }
 
     public function create(Category $category)
@@ -59,6 +66,15 @@ class PostController extends Controller
         $input_post = $request['post'];
         $post->fill($input_post)->save();
 
+        return redirect('/posts/' . $post->id);
+    }
+    
+    public function reaction(Request $request, Reaction $reaction, Post $post)
+    {
+        $reaction->user_id=\Auth::id();
+        $reaction->post_id=$post->id;
+        $reaction->genre=$request->reaction;
+        $reaction->save();
         return redirect('/posts/' . $post->id);
     }
 
