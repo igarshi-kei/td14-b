@@ -23,5 +23,10 @@
             <a href="/">戻る</a>
         </div>
     </body>
+    <form action="/posts/{{$post->id}}/comment" method="post">
+        @csrf
+        <textarea name="body"></textarea>
+        <button type="submit">コメントする</button>
+    </form>
     </x-app-layout>
 </html>
