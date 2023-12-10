@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('post_id')->constrained();
-            $table->string('comment',200);
+            $table->string('body',200);
             $table->timestamps();
             $table->softDeletes();
         });
