@@ -20,7 +20,7 @@
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
-                    <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+                    <p>カテゴリー：{{ $post->category->name }}</p>
                     <img src="{{$post->image}}">
                 </div>
             @endforeach

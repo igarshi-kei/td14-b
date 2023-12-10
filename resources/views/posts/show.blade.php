@@ -11,7 +11,6 @@
         <x-slot name="header">
             Index
         </x-slot>
-    <body>
         <h1>詳細画面</h1>
         <div>
             <p>タイトル：{{ $post->title }}</p>
@@ -58,5 +57,8 @@
         <textarea name="body"></textarea>
         <button type="submit">コメントする</button>
     </form>
+    @foreach($post->comments as $comment)
+        <p>{{$comment->body}}</p>
+    @endforeach
     </x-app-layout>
 </html>
