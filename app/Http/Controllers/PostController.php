@@ -22,6 +22,19 @@ class PostController extends Controller
     {
         return view('posts/create')->with(['categories' => $category->get()]);
     }
+    
+    public function comment(Comment $comment)
+    {
+        $postId = $request->input('post_id');
+        
+        $comment = new Comment([
+                'user_id' => auth()->id(),
+                'post_id' => $postId,
+                'content' => $request->input('content'),
+            ]);
+            $comment->save();
+            return redirect('/posts/'.$post->id);
+    }
 
     public function store(Post $post, Request $request)
     {
