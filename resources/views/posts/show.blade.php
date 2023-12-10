@@ -27,7 +27,7 @@
         <button type="submit">コメントする</button>
     </form>
     @foreach($post->comments as $comment)
-        <p>{{$comment->body}}</p>
+        <p class="text-red-300">{{$comment->body}}</p>
     @endforeach
     </x-app-layout>
 </html>
