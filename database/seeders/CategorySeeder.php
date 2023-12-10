@@ -35,13 +35,13 @@ class CategorySeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => '龍',
+            'name' => 'プレゼントについて',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('categories')->insert([
-            'name' => '虎',
+            'name' => 'トナカイについて',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
