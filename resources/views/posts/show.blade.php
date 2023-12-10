@@ -11,7 +11,6 @@
         <x-slot name="header">
             Index
         </x-slot>
-    <body>
         <h1>詳細画面</h1>
         <div>
             <p>タイトル：{{ $post->title }}</p>
@@ -22,11 +21,13 @@
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
             <a href="/">戻る</a>
         </div>
-    </body>
     <form action="/posts/{{$post->id}}/comment" method="post">
         @csrf
         <textarea name="body"></textarea>
         <button type="submit">コメントする</button>
     </form>
+    @foreach($post->comments as $comment)
+        <p>{{$comment->body}}</p>
+    @endforeach
     </x-app-layout>
 </html>
