@@ -40,7 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{post}/edit',  [PostController::class, 'edit']);
     Route::post('/posts/{post}/comment',  [PostController::class, 'comment']);
     Route::get('/categories/{category}', [CategoryController::class,'index']);
+    Route::post('/posts/{post}/icon',  [PostController::class, 'reaction']);
 });
+
+
 
 
 require __DIR__.'/auth.php';
