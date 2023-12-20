@@ -73,6 +73,12 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
+    
     public function reaction(Request $request, Reaction $reaction, Post $post)
     {
         $reaction->user_id=\Auth::id();

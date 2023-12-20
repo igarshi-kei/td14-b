@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts/{post}/comment',  [PostController::class, 'comment']);
     Route::get('/categories/{category}', [CategoryController::class,'index']);
     Route::post('/posts/{post}/icon',  [PostController::class, 'reaction']);
+    Route::delete('/posts/{post}', [PostController::class, 'delete']);
 });
 
 
