@@ -1,12 +1,9 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
-    <body>
-        <h1>サンタクロースと話そう</h1>
-        <h2>投稿作成</h2>
+<x-app-layout>
+    <x-slot name="header">
+            さくせいがめん
+        </x-slot>
+        <h1>サンタクロースとはなそう🎅</h1>
+        <h2>サンタさんにききたいことやつたえたいことを　じゆうにかいてみよう！</h2>
         <!-- formタグにenctypeを追加 -->
         <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
@@ -16,7 +13,7 @@
                 <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div>
-                <h2>本文</h2>
+                <h2>ないよう</h2>
                 <textarea name="post[body]" placeholder="サンタさんはどこに住んでいますか？">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
@@ -36,5 +33,4 @@
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>
-    </body>
-</html>
+</x-app-layout>

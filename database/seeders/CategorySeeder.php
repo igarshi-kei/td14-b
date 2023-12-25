@@ -17,13 +17,13 @@ class CategorySeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'name' => '質問',
+            'name' => 'しつもん',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('categories')->insert([
-            'name' => '伝えたいこと',
+            'name' => 'つたえたいこと',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
