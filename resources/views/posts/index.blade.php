@@ -3,15 +3,17 @@
             いちらん
         </x-slot>
 
-        <h1 class="text-red-600">サンタクロースとおはなししよう！！</h1>
+        <h1 class="text-orange-600 bg-white-100">サンタクロースとおはなししよう！！</h1>
         <h2>✨みんなのとうこう✨</h2>
-        <p class="text-lg">みんなの【ききたいこと】や【つたえたいこと】をサンタさんにおくると、おへんじがもらえるよ❕</p>
+        <p class="text-lg ">みんなの【ききたいこと】や【つたえたいこと】をサンタさんにおくると、おへんじがもらえるよ❕</p>
         <div class="mt-2 mb-2">
-            <a href='/posts/create' class="bg-green-600 hover:bg-green-500 text-white rounded px-4 py-2">とうこうする</a>
+            <a href='/posts/create' class="shadow-lg bg-orange-500 shadow-orange-500/50 text-white rounded px-2 py-1">とうこうする</a>
         </div>
+        <br>
         <div>
             @foreach ($posts as $post)
-                <div style='border:solid 1px; margin-bottom: 10px;'>
+                <div style='border:solid 1px; margin-bottom: 10px;' >
+                    <br>
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
@@ -21,8 +23,9 @@
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $post->id }})">けす</button>
+                        <button type="button" onclick="deletePost({{ $post->id }})" class=" text-white-700 bg-orange-300 " >けす</button>
                     </form>
+                    <br>
                 </div>
             @endforeach
         </div>
