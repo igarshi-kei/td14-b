@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a:link{ color: blue;}
+a:visited{ color: purple;}
+
 h1 {
     @apply text-3xl font-bold my-2;
 }

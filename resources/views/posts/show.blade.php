@@ -9,17 +9,17 @@
     </head>
     <x-app-layout>
         <x-slot name="header">
-            Index
+            とうこうをみる
         </x-slot>
-        <h1>詳細画面</h1>
+        <h2>とうこう</h2>
         <div>
             <p>タイトル：{{ $post->title }}</p>
-            <p>本文：{{ $post->body }}</p>
+            <p>ないよう：{{ $post->body }}</p>
             <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
         </div>
         <div>
-            <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
-            <a href="/">戻る</a>
+            <p class="edit">[<a href="/posts/{{ $post->id }}/edit">かきなおす</a>]</p>
+            <a href="/">まえのがめんにもどる</a>
         </div>
          <div class="flex w-[60%] justify-between">
     <div class="flex text-4xl">
@@ -69,7 +69,7 @@
         <button type="submit">コメントする</button>
     </form>
     @foreach($post->comments as $comment)
-        <p class="text-red-300">{{$comment->body}}</p>
+        <p class="text-green-700">{{$comment->body}}</p>
     @endforeach
     </body>
    
